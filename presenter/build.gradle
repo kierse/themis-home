@@ -1,0 +1,40 @@
+buildscript {
+    ext.kotlin_version = '1.0.3'
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'kotlin'
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+
+    // module dependencies
+    compile project(':domain')
+
+    // dagger 2
+    compile 'com.google.dagger:dagger:2.6'
+
+    // kotlin
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    // rxjava
+    compile 'io.reactivex:rxjava:1.1.9'
+
+    // unit tests
+    testCompile 'junit:junit:4.12'
+}
+
+sourceSets {
+    main.java.srcDirs += "src/main/kotlin"
+    main.java.srcDirs += 'src/main/kotlin'
+}

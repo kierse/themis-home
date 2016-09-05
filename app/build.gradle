@@ -1,0 +1,77 @@
+buildscript {
+    ext.kotlin_version = '1.0.3'
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.0"
+    defaultConfig {
+        applicationId "com.pissiphany.home"
+        minSdkVersion 23
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+
+    // module dependencies
+    compile project(":presenter")
+    compile project(':data')
+    compile project(":domain")
+
+    // android libraries
+    compile 'com.android.support:appcompat-v7:24.2.0'
+
+    // dagger 2
+    compile 'com.google.dagger:dagger:2.6'
+    kapt 'com.google.dagger:dagger-compiler:2.6'
+
+    // kotlin
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    // rxjava
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'io.reactivex:rxjava:1.1.9'
+
+    // unit tests
+    testCompile 'junit:junit:4.12'
+
+    // instrumentation tests
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+}
+
+kapt {
+    generateStubs = true
+}
