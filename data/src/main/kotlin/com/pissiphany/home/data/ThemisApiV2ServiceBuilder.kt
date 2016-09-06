@@ -4,7 +4,9 @@ import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.pissiphany.home.data.gson.DateTimeTypeAdapter
+import com.pissiphany.home.data.response.CalendarEntryListResponse
 import com.pissiphany.home.data.response.MatterListResponse
+import com.pissiphany.home.data.response.TaskListResponse
 import okhttp3.Headers
 import okhttp3.HttpUrl
 import okhttp3.Interceptor
@@ -41,11 +43,11 @@ interface ThemisApiV2RetrofitService {
     @GET("api/v2/matters")
     fun matters(@QueryMap() params: Map<String, String>) : Observable<MatterListResponse>
 
-//    @GET("api/v2/tasks")
-//    fun tasks() : Observable<List<Task>>
-//
-//    @GET("api/v2/calendar_entries")
-//    fun calendarEntries() : Observable<List<CalendarEntry>>
+    @GET("api/v2/tasks")
+    fun tasks(@QueryMap params: Map<String, String>) : Observable<TaskListResponse>
+
+    @GET("api/v2/calendar_entries")
+    fun calendarEntries(@QueryMap params: Map<String, String>) : Observable<CalendarEntryListResponse>
 }
 
 fun buildService(url: String, token: String) : ThemisApiV2RetrofitService {

@@ -22,15 +22,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <!-- MATTERS -->
+            <!-- CALENDARS -->
             <TextView
-                android:text="Recent Matters"
+                android:text="Upcoming Events"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/matterListTitle" />
+                android:id="@+id/calendarsListTitle" />
 
             <ListView
-                android:id="@+id/matterList"
+                android:id="@+id/calendarEntryList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -38,8 +38,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@android:color/darker_gray"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp" />
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp" />
 
             <!-- TASKS -->
             <TextView
@@ -60,15 +60,15 @@
                 android:layout_marginBottom="5dp"
                 android:layout_marginTop="5dp" />
 
-            <!-- CALENDARS -->
+            <!-- MATTERS -->
             <TextView
-                android:text="Upcoming Events"
+                android:text="Recent Matters"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/calendarsListTitle" />
+                android:id="@+id/matterListTitle" />
 
             <ListView
-                android:id="@+id/calendarEntryList"
+                android:id="@+id/matterList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -76,8 +76,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@android:color/darker_gray"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="5dp" />
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp" />
+
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

@@ -1,5 +1,6 @@
 package com.pissiphany.home.data
 
+import com.pissiphany.home.data.service.data.ThemisApiV2MatterDataService
 import com.pissiphany.home.domain.model.Matter
 import org.junit.Before
 import org.junit.Test
@@ -10,12 +11,12 @@ import rx.observers.TestSubscriber
  * Created by kierse on 2016-08-30.
  */
 class ThemisApiV2ServiceImplUnitTest {
-    lateinit var service: ThemisApiV2Service
+    lateinit var service: ThemisApiV2MatterDataService
 
     @Before
     fun setup() {
         val (root, token) = getApiResources()
-        service = ThemisApiV2Service(
+        service = ThemisApiV2MatterDataService(
                 buildService(root, token)
         )
     }

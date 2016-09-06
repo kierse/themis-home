@@ -8,5 +8,9 @@ import org.joda.time.DateTime
 data class Task(
         val id: Long?,
         val createdAt: DateTime?,
-        val updatedAt: DateTime?
+        val updatedAt: DateTime?,
+
+        val name: String?,
+        val dueAt: DateTime?,
+        val priority: String?
 )

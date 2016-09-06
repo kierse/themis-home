@@ -8,5 +8,8 @@ import org.joda.time.DateTime
 data class CalendarEntry(
         val id: Long?,
         val createdAt: DateTime?,
-        val updatedAt: DateTime?
+        val updatedAt: DateTime?,
+
+        val summary: String?,
+        val startDate: DateTime?
 )
